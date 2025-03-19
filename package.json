@@ -1,7 +1,9 @@
 {
   "name": "promise-deduplicate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Utility for combining several permits into one",
+  "keywords": ["promise", "deduplicator", "promise-deduplicator", "util", "async deduplicator", "merge promises"],
+  "license": "MIT",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "files": [
@@ -9,7 +11,6 @@
     "package.json",
     "README.md"
   ],
-  "license": "MIT",
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "start": "ts-node src/index.ts",

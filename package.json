@@ -1,9 +1,14 @@
 {
   "name": "promise-deduplicate",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Utility for combining several permits into one",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
+  "files": [
+    "/dist",
+    "package.json",
+    "README.md"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./dist && tsc",

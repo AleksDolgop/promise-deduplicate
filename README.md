@@ -22,12 +22,13 @@ import { PromisesDeduplicate } from 'promise-deduplicate';
 // Create deduplicator instance
 const deduplicate = new PromisesDeduplicate();
 
+let couner = 0
+
 // Asynchronous function we want to deduplicated
-async function fetchData(id: string): Promise<string> {
-    console.log(`Fetching data for id: ${id}`);
+async function fetchData(): Promise<string> {
     // Imitation of an asynchronous request
     return new Promise((resolve) => {
-        setTimeout(() => resolve(`Data for ${id}`), 1000);
+        setTimeout(() => resolve(++couner), 1000);
     });
 }
 
@@ -36,17 +37,17 @@ async function main() {
     const id = '123';
 
     // The first challenge - will begin execution
-    const promise1 = deduplicate.handle(id, () => fetchData(id));
+    const promise1 = deduplicate.handle(id, () => fetchData());
 
     // The second challenge with the same key - will return the same Promis
-    const promise2 = deduplicate.handle(id, () => fetchData(id));
+    const promise2 = deduplicate.handle(id, () => fetchData());
 
     // We expect the end
     const result1 = await promise1;
     const result2 = await promise2;
 
-    console.log(result1); // Data for 123
-    console.log(result2); // Data for 123
+    console.log(result1); // 1
+    console.log(result2); // 1
 }
 
 main();
@@ -59,10 +60,11 @@ import { PromisesDeduplicate } from 'promise-deduplicate';
 
 const deduplicate = new PromisesDeduplicate();
 
-async function fetchData(id: string): Promise<string> {
-  console.log(`Fetching data for id: ${id}`);
+let couner = 0
+
+async function fetchData(): Promise<string> {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(`Data for ${id}`), 1000);
+    setTimeout(() => resolve(++counter), 1000);
   });
 }
 
@@ -71,17 +73,17 @@ async function main() {
   const id2 = '456';
 
   // First call for ID1
-  const promise1 = deduplicate.handle(id1, () => fetchData(id1));
+  const promise1 = deduplicate.handle(id1, () => fetchData());
 
   // First call for ID2
-  const promise2 = deduplicate.handle(id2, () => fetchData(id2));
+  const promise2 = deduplicate.handle(id2, () => fetchData());
 
   // We expect the end
   const result1 = await promise1;
   const result2 = await promise2;
 
-  console.log(result1); // Data for 123
-  console.log(result2); // Data for 456
+  console.log(result1); // 1
+  console.log(result2); // 2
 }
 
 main();

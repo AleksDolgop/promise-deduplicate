@@ -1,6 +1,6 @@
 {
   "name": "promise-deduplicate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utility for combining several permits into one",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",

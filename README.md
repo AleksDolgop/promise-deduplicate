@@ -19,29 +19,29 @@ yarn add promise-deduplicate
 ```typescript
 import { PromisesDeduplicate } from 'promise-deduplicate';
 
-// Создаем экземпляр дедупликатора
+// Create deduplicator instance
 const deduplicate = new PromisesDeduplicate();
 
-// Асинхронная функция, которую мы хотим дедуплицировать
+// Asynchronous function we want to deduplicated
 async function fetchData(id: string): Promise<string> {
     console.log(`Fetching data for id: ${id}`);
-    // Имитация асинхронного запроса
+    // Imitation of an asynchronous request
     return new Promise((resolve) => {
         setTimeout(() => resolve(`Data for ${id}`), 1000);
     });
 }
 
-// Использование дедупликатора
+// Using
 async function main() {
     const id = '123';
 
-    // Первый вызов - начнет выполнение
+    // The first challenge - will begin execution
     const promise1 = deduplicate.handle(id, () => fetchData(id));
 
-    // Второй вызов с тем же ключом - вернет тот же промис
+    // The second challenge with the same key - will return the same Promis
     const promise2 = deduplicate.handle(id, () => fetchData(id));
 
-    // Ожидаем завершения
+    // We expect the end
     const result1 = await promise1;
     const result2 = await promise2;
 
@@ -70,13 +70,13 @@ async function main() {
   const id1 = '123';
   const id2 = '456';
 
-  // Первый вызов для id1
+  // First call for ID1
   const promise1 = deduplicate.handle(id1, () => fetchData(id1));
 
-  // Первый вызов для id2
+  // First call for ID2
   const promise2 = deduplicate.handle(id2, () => fetchData(id2));
 
-  // Ожидаем завершения
+  // We expect the end
   const result1 = await promise1;
   const result2 = await promise2;
 
@@ -87,9 +87,9 @@ async function main() {
 main();
 ```
 
-## Authors
+## Author
 
-- [Aleksandr Dolgopolov](https://github.com/AleksDolgop)
+- [AleksDolgop | Github](https://github.com/AleksDolgop)
 
 ## Support
 

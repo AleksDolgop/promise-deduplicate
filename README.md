@@ -22,13 +22,13 @@ import { PromisesDeduplicate } from 'promise-deduplicate';
 // Create deduplicator instance
 const deduplicate = new PromisesDeduplicate();
 
-let couner = 0
+let counter = 0
 
 // Asynchronous function we want to deduplicated
 async function fetchData(): Promise<string> {
     // Imitation of an asynchronous request
     return new Promise((resolve) => {
-        setTimeout(() => resolve(++couner), 1000);
+        setTimeout(() => resolve(++counter), 1000);
     });
 }
 
@@ -39,7 +39,7 @@ async function main() {
     // The first challenge - will begin execution
     const promise1 = deduplicate.handle(id, () => fetchData());
 
-    // The second challenge with the same key - will return the same Promis
+    // The second challenge with the same key - will return the same Promise
     const promise2 = deduplicate.handle(id, () => fetchData());
 
     // We expect the end
@@ -60,7 +60,7 @@ import { PromisesDeduplicate } from 'promise-deduplicate';
 
 const deduplicate = new PromisesDeduplicate();
 
-let couner = 0
+let counter = 0
 
 async function fetchData(): Promise<string> {
   return new Promise((resolve) => {

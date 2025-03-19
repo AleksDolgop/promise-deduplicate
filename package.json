@@ -1,6 +1,6 @@
 {
   "name": "promise-deduplicate",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Utility for combining several permits into one",
   "keywords": ["promise", "deduplicator", "promise-deduplicator", "util", "async deduplicator", "merge promises"],
   "license": "MIT",

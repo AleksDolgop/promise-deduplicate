@@ -1,15 +1,14 @@
 {
   "name": "promise-deduplicate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility for combining several permits into one",
-  "types": "dist/index.js",
+  "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "start": "ts-node src/index.ts",
     "test": "jest",
-    "lint": "eslint . --ext .ts",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {

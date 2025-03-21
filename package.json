@@ -1,11 +1,12 @@
 {
   "name": "promise-deduplicate",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Utility for combining several permits into one",
   "keywords": ["promise", "deduplicator", "promise-deduplicator", "util", "async deduplicator", "merge promises"],
   "license": "MIT",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
+  "repository": "https://github.com/AleksDolgop/promise-deduplicate",
   "files": [
     "/dist",
     "package.json",
